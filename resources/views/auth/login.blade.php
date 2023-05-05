@@ -14,7 +14,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <img src="{{ asset('ui/frontend/images/logo/uboighar.png') }}" alt="" class="img-fluid" style="margin: auto;padding:10px;margin-bottom:10px">
+
             <!-- Email Address -->
             <div>
                 <x-label for="email" :value="__('Email')" />
@@ -39,9 +39,7 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
-            <div>
-                <a href="{{ route('register') }}">Create an account</a>
-             </div>
+
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">

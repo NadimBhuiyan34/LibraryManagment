@@ -24,7 +24,7 @@
                                 <input type="hidden" name="hidden_title" value="{{ $sellbook->booktitle }}" />
                                 <input type="hidden" name="hidden_price" value="{{ $sellbook->price }}" />
                                 <input type="hidden" name="hidden_author" value="{{ $sellbook->bookauthor }}" />
-                                <a class="btn btn-success" href="{{ route('donetbookdetails', ['donetbookdetail' => $sellbook->id]) }}" role="button">View Detail</a>
+                                <a class="btn btn-success" href="{{ route('donetbookdetails', ['donetbookdetail' => $sellbook->id]) }}" role="button">View Detail1</a>
 
 
                             </div>

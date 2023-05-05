@@ -1,108 +1,64 @@
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <img src="{{ asset('frontend/img/logo.png') }}" alt="" style="width:30px; height:40px" class="me-2">
+      <h1 class="logo me-auto "><a href="index.html">IIT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-<header>
-   <div class="header-top-bar">
-       <div class="container">
-           <div class="row align-items-center">
-               <div class="col-lg-6">
-                   <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                       <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i>IIT LIBRARY</a></li>
-                       <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address DHAKA Bangladesh </li>
-                   
-                   </ul>
-                   <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                      <h2 style="color:white">IIT LIBRARY</h2>
-                   
-                   </ul>
-                    
-               </div>
-               <div class="col-lg-6">
-                   <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                           <ul class="d-flex justify-content-end mt-2">
-                                   <i class="fa-brands fa-facebook" style="margin-right: 20px"></i>
-                                   <i class="fa-brands fa-twitter" style="margin-right: 20px;"></i>
-                                   <i class="fa-brands fa-linkedin" style="margin-right: 20px;"></i>
-                                   <i class="fa-brands fa-instagram" style="margin-right: 20px;"></i>
-                           </ul>
-                       </a>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-   <nav class="navbar navbar-expand-sm navigation" id="navbar">
-       <div class="container">
-             <a class="navbar-brand" href="{{ route('homepage') }}">
-                 <img src="{{ asset('ui/frontend/images/logo/iit.jfif') }}" alt="" class="img-fluid" class="" style="height:100px">
-             </a>
-
-             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="icofont-navigation-menu"></span>
-         </button>
-
-         <div class="collapse navbar-collapse" id="navbarmain">
-           <ul class="navbar-nav ml-auto">
-
-             <li class="nav-item dropdown">
-               <a class="nav-link" href="{{ url('/') }}" id="dropdown02" data-toggle=""> BOOK STORE <i class="icofont-thin-down"></i></a>
-               <ul class="dropdown-menu">
-  
-                    {{-- <li><a class="dropdown-item" href="{{ route('oldbook') }}">SOFTWARE ENINEERING</a></li>
-                    <li><a class="dropdown-item" href="{{ route('newcollection') }}">NEW COLLECTION</a></li>
-                   <li><a class="dropdown-item" href="{{ route('oldbook') }}">OLD BOOK</a></li> --}}
-                   <li><a class="dropdown-item" href="{{ route('getdonate') }}">GET BOOK</a></li>
-               </ul>
-             </li>
-              <li class="nav-item"><a class="nav-link" href="{{ route('sellbooks.create') }}">Requested Book</a></li>
-               {{-- <li class="nav-item"><a class="nav-link" href="{{ route('requestbooks.create') }}">REQUEST BOOK</a></li> --}}
-               {{-- <li class="nav-item"><a class="nav-link" href="{{ route('donatebooks.create') }}">DONATE  BOOK</a></li> --}}
-               {{-- <li class="nav-item"><a class="nav-link" href="{{ route('earnpoint') }}">EARN POINT</a></li> --}}
-
-
-                 <li class="nav-item dropdown">
-                   <a class="nav-link  " href="doctor.html" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PAGE <i class="icofont-thin-down"></i></a>
-                   <ul class="dropdown-menu" aria-labelledby="dropdown03">
-
-                       <li><a class="dropdown-item" href="{{ route('aboutus') }}">ABOUT US</a></li>
-                       <li><a class="dropdown-item" href="{{ route('contactus') }}">CONTACT US</a></li>
-                       
-                       <li><a class="dropdown-item" href="{{ route('upcomingEvent') }}">Events</a></li>
-                       
-                <li><a class="dropdown-item" href="{{ route('faq') }}">FAQ</a></li>
- 
-                       @can('admin-link')
-                       <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin</a></li>
-                       @endcan
-
-                   </ul>
-                 </li>
-           </li>
-           <li>
-            <a href="cart.php"> <i class="fa-solid fa-cart-plus" style="margin-top:15px;color: #000000;"></i></a>
-         </li>
-           <li class="nav-item dropdown">
-
-             <a class="nav-link p-0 mx-2 mt-1" href="{{ route('homepage') }}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              
-              @if (auth()->user())
-                 
-              <div class="">
-                @auth
-                <img src="{{asset('/storage/profiles/'.auth()->user()->profile->image)}}" alt="profile"style="border-radius: 50%;width:35px;height:35px;margin-left:10px" class="border"/>
-                {{auth()->user()->name}}
-                @endauth
-              </div>
-              @else
-              {{-- <img src="{{asset('/storage/profiles/profile.jpg')}}" alt="profile"style="border-radius: 50%;width:35px;height:35px;" class="border"/> --}}
-              <i class="fa-solid fa-user" style="font-size:30px;margin-left:50px"></i>
-              @endif
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
            
+          
+          <li class="dropdown"><a href="#"><span>Online Library</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
               
             
+              <li><a href="{{ route('library-dashboard') }}">Dashboard</a></li>
+              <li><a href="{{ route('get-book') }}">Get Book</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Faculty</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              
+            
+              <li><a href="{{ route('teacher-list') }}">Teacher</a></li>
+              <li><a href="{{ route('student-list') }}">Student</a></li>
+            </ul>
+          </li>
            
-            </a>
-             <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                  @auth
-                 <li><form method="POST" action="{{ route('logout') }}">
+        
+
+
+          <li><a href="contact.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('dashboard') }}">Admin</a></li>
+        
+        
+
+
+
+
+ 
+       @if (auth()->user())
+                 
+           
+                @auth
+                
+               
+                 
+    
+        <li class="dropdown">
+           
+          <a href="#">
+              <img src="{{asset('/storage/profiles/'.auth()->user()->profile->image)}}" alt="profile"style="border-radius: 50%;width:35px;height:35px;" class="border"/>
+            <span class="ms-2">{{auth()->user()->name}}</span> <i class="bi bi-chevron-down"></i>
+          </a>
+            <ul>
+              <li><a href="">Profile</a></li>
+              
+             <li><form method="POST" action="{{ route('logout') }}">
                   @csrf
                   <a class="dropdown-item"
                           onclick="event.preventDefault();
@@ -111,22 +67,41 @@
                   </a>
                 </form>
                 </li>
-                <li><a class="dropdown-item" href="{{ route('profiles.show',['profile'=>auth()->user()->id]) }}">Profile Setting</a></li>
-                <li><a class="dropdown-item" href="{{ route('userorders.show',['userorder'=>auth()->user()->id]) }}">Your Orders</a></li>
-                @else
-                 <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
-                 <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-
-                  @endauth
-             </ul>
-           </li>
+              
+            </ul>
+          </li>
 
 
 
-           </ul>
-         </div>
-       </div>
-   </nav>
-</header>
+                @endauth
+             
+               @else
+               
+             
+  <a href="{{ route('login') }}" class="btn btn-outline-danger ms-3 shadow btn-sm p-1"><i class="fa-solid fa-right-to-bracket fa-shake me-2"></i>Login</a>
 
+     @endif
+
+           
+              </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
  
+      </nav><!-- .navbar -->
+     
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+    </div>
+  </header><!-- End Header -->
+  

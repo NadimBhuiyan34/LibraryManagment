@@ -44,15 +44,6 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        $user->profile()->create([
-            'user_id' => $request->user->id??"",
-            // 'profession' => $request->profession??"",
-            // 'address' => $request->address??"",
-            // 'facebook_url' => $request->facebook_url??"",
-            // 'linkedin_url' => $request->linkedin_url??"",
-            'image' => $request->image??"profile.jpg",
-             
-        ]);
 
         event(new Registered($user));
 
